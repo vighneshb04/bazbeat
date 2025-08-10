@@ -1,11 +1,13 @@
-import React from "react";
-import SearchBar from "./SearchBar";
+import React from 'react';
+import { Music } from 'lucide-react';
 
-export default function Header({ onSearch }) {
+export default function Header() {
   return (
-    <header className="glass-header">
-      <h2>🎵 BazBeat</h2>
-      <SearchBar onSearch={onSearch} />
+    <header className="header">
+      <h2>
+        <Music size={24} style={{ marginRight: '0.5rem' }} />
+        BazBeat
+      </h2>
     </header>
   );
 }

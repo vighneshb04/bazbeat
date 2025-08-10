@@ -1,30 +1,20 @@
-import React, { useState } from "react";
-import { searchTracks } from "../spotify";
+import React from 'react';
+import { Search } from 'lucide-react';
 
-export default function SearchBar({ onSearch }) {
-  const [query, setQuery] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const token = localStorage.getItem("spotify_token");
-    if (!token) {
-      alert("Please add your Spotify token to localStorage");
-      return;
-    }
-    if (query) {
-      onSearch(await searchTracks(query, token));
-    }
-  };
-
+export default function SearchBar({ searchTerm, setSearchTerm, onSearch }) {
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text" 
-        placeholder="Search songs..." 
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button type="submit">🔍</button>
-    </form>
+    <div className="search-bar-container">
+      <form onSubmit={onSearch} className="search-form">
+        <Search className="search-icon" size={20} />
+        <input
+          type="text"
+          placeholder="Search for a song or artist..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="search-input"
+        />
+        <button type="submit" style={{ display: 'none' }}>Search</button>
+      </form>
+    </div>
   );
 }
