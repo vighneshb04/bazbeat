@@ -1,0 +1,98 @@
+body, #root, .App {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", sans-serif;
+  background-size: cover;
+  background-position: center;
+  transition: background-image 0.4s;
+}
+
+.App::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: inherit;
+  background-size: cover;
+  background-position: center;
+  filter: blur(25px) brightness(0.6);
+  z-index: -2;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: -1;
+}
+
+.glass-card, .glass-header {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(14px) saturate(160%);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  padding: 1rem;
+}
+
+.glass-header {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 10;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 4px 10px;
+}
+
+input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+button {
+  background: rgba(255,255,255,0.15);
+  border: none;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.song-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  background: rgba(255,255,255,0.08);
+  border-radius: 12px;
+}
+
+.song-item img {
+  border-radius: 8px;
+  width: 56px;
+  height: 56px;
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem;
+  justify-content: center;
+}
